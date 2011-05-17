@@ -1,5 +1,13 @@
 # utils
-log = (what) -> console.log "~gt> " + what
+log = (what) -> console.log "#{time()}~gt> #{what}"
+time = ->
+    dt = new Date
+    pad = (what) ->
+        if what < 10
+            "0" + what
+        else
+            what
+    "#{pad dt.getHours()}:#{pad dt.getMinutes()}:#{pad dt.getSeconds()}"
 
 # classes
 class goodtouch

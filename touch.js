@@ -1,5 +1,5 @@
 (function() {
-  var gesture, gestures, goodtouch, gt, log, three_finger_swipe_down, three_finger_swipe_left, three_finger_swipe_right, three_finger_swipe_up;
+  var gesture, gestures, goodtouch, gt, log, three_finger_swipe_down, three_finger_swipe_left, three_finger_swipe_right, three_finger_swipe_up, time;
   var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
     for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
     function ctor() { this.constructor = child; }
@@ -9,7 +9,19 @@
     return child;
   };
   log = function(what) {
-    return console.log("~gt> " + what);
+    return console.log("" + (time()) + "~gt> " + what);
+  };
+  time = function() {
+    var dt, pad;
+    dt = new Date;
+    pad = function(what) {
+      if (what < 10) {
+        return "0" + what;
+      } else {
+        return what;
+      }
+    };
+    return "" + (pad(dt.getHours())) + ":" + (pad(dt.getMinutes())) + ":" + (pad(dt.getSeconds()));
   };
   goodtouch = (function() {
     function goodtouch() {
