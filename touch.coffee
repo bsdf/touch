@@ -9,6 +9,7 @@ LOG_LEVEL=LOG_LEVEL_DEBUG
 log = (what) -> logz what, 1
 err = (what) -> logz what, 0
 dbg = (what) -> logz what, -1
+
 logz = (what, lvl) ->
     if lvl >= LOG_LEVEL
         lvl_string =
@@ -21,6 +22,7 @@ logz = (what, lvl) ->
                     "@log"
 
         console.log "[#{time()}] ~gt#{lvl_string}> #{what}"
+
 time = ->
     dt = new Date
     pad = (what) ->
